@@ -2,20 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #8b5cf6;
+    --accent: #f59e0b;
+    --background: #f1eeee;
+    --foreground: #020617;
+    --card: #e0e0e0;
+    --card-foreground: #020617;
+    --border: #ccd3db;
+    --ring: #93c5fd;
+  }
+
+  [data-theme='dark'] {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --secondary: #a78bfa;
+    --accent: #fbbf24;
+    --background: #020617;
+    --foreground: #f8fafc;
+    --card: #1e293b;
+    --card-foreground: #f8fafc;
+    --border: #334155;
+    --ring: #1d4ed8;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .nav-link {
+    @apply relative px-4 py-2 text-foreground hover:text-primary transition-colors;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .floating-cursor {
+    @apply w-5 h-5 border-2 border-primary rounded-full fixed pointer-events-none z-50;
+    transition: transform 0.1s ease;
+  }
+
+  .card-3d {
+    @apply transform-gpu;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .parallax-wrapper {
+    @apply h-screen overflow-x-hidden;
+    perspective: 10px;
+    transform-style: preserve-3d;
+  }
 }
