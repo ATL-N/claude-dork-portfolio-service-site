@@ -2,10 +2,10 @@
 # version: '3.8'
 
 services:
-  nextjs:
-    image: school-management-system-nextjs-atl:${VERSION:-latest}
+  claude-dork-portfolio-service-site-app:
+    image: claude-dork-portfolio-service-site-app:${VERSION:-latest}
     ports:
-      - '3007:3007'
+      - '3007:3000'
     build:
       context: .
       dockerfile: Dockerfile
@@ -52,7 +52,7 @@ services:
   db:
     image: postgres:15-alpine
     ports:
-      - "5435:5432"
+      - "5436:5432"
     environment:
       - POSTGRES_USER=${DB_USER:-postgres}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
