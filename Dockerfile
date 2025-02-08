@@ -32,7 +32,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
-EXPOSE 3001
+EXPOSE 3000
 
 # # Add healthcheck
 # HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
