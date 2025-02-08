@@ -13,14 +13,14 @@ services:
       - "traefik.http.routers.portfolio.entrypoints=websecure"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.routers.portfolio.middlewares=secHeaders@file,rateLimit@file"
-      - "traefik.http.services.portfolio.loadbalancer.server.port=3000"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=3001"
     # Remove the ports mapping since Traefik handles it
     restart: always
     networks:
       - web
       - app-network
     healthcheck:
-      test: ["CMD", "wget", "--spider", "http://localhost:3000/api/health"]
+      test: ["CMD", "wget", "--spider", "http://localhost:3001/api/health"]
       interval: 20s
       timeout: 20s
       retries: 3

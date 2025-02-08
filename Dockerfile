@@ -14,10 +14,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Next.js collects anonymous telemetry data about general usage
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3001
 
-# Build the application
 RUN npm run build
 
 # Production image, copy all the files and run next
@@ -26,12 +25,12 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
+ENV PORT 3001
+ENV HOSTNAME "0.0.0.0"
 
-# Create non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy only necessary files
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
@@ -43,15 +42,8 @@ RUN chown nextjs:nodejs .next
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Switch to non-root user
 USER nextjs
 
-EXPOSE 3000
+EXPOSE 3001
 
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
-
-# Add the health check endpoint file
-COPY --chown=nextjs:nodejs api/health.js ./api/health.js
-
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
