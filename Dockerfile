@@ -46,4 +46,5 @@ USER nextjs
 
 EXPOSE 3001
 
-CMD ["node", "server.js"]
+# CMD ["node", "server.js"]
+CMD ["npm", "start"]
