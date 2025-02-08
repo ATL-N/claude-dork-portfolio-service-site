@@ -1,5 +1,4 @@
-# Project docker-compose.yml (for your Next.js app)
-# version: '3.8'
+version: '3.8'
 
 services:
   claude-dork-portfolio-service-site-app:
@@ -7,24 +6,26 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - PORT=3001
+      - HOSTNAME=0.0.0.0
+      - NODE_ENV=production
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portfolio.rule=Host(`edinception.online`)"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.portfolio.middlewares=secHeaders@file,rateLimit@file"
       - "traefik.http.services.portfolio.loadbalancer.server.port=3001"
-    # Remove the ports mapping since Traefik handles it
-    restart: always
     networks:
       - web
       - app-network
     healthcheck:
-      test: ["CMD", "wget", "--spider", "http://localhost:3001/api/health"]
-      interval: 20s
-      timeout: 20s
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
+      interval: 10s
+      timeout: 10s
       retries: 3
       start_period: 40s
+
 networks:
   web:
     external: true
