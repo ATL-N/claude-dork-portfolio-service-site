@@ -9,17 +9,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - DB_USER=${DB_USER:-postgres}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_HOST=${DB_HOST:-db}
-      - DB_PORT=${DB_PORT:-5432}
-      - DB_NAME=${DB_NAME:-postgres}
-      - DATABASE_URL=postgresql://${DB_USER:-postgres}:${DB_PASSWORD}@db:5432/${DB_NAME:-postgres}
-      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
-      - NEXTAUTH_URL=${NEXTAUTH_URL}
-      # - PGSSLMODE=disable
-      - NODE_ENV=production
+    # environment:
+    #   - DB_USER=${DB_USER:-postgres}
+    #   - DB_PASSWORD=${DB_PASSWORD}
+    #   - DB_HOST=${DB_HOST:-db}
+    #   - DB_PORT=${DB_PORT:-5432}
+    #   - DB_NAME=${DB_NAME:-postgres}
+    #   - DATABASE_URL=postgresql://${DB_USER:-postgres}:${DB_PASSWORD}@db:5432/${DB_NAME:-postgres}
+    #   - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+    #   - NEXTAUTH_URL=${NEXTAUTH_URL}
+    #   # - PGSSLMODE=disable
+    #   - NODE_ENV=production
     labels:
       - "traefik.enable=true"
       # - "traefik.http.routers.portfolio.rule=Host(`edinception.online`)"
@@ -35,9 +35,9 @@ services:
       # - "traefik.http.routers.school.middlewares=retry@docker"
       # # Configure retry attempts
       # - "traefik.http.middlewares.retry.retry.attempts=3"
-    depends_on:
-      db:
-        condition: service_healthy
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
     restart: always
     networks:
       - web
@@ -49,34 +49,34 @@ services:
       retries: 3
       start_period: 40s
 
-  db:
-    image: postgres:15-alpine
-    ports:
-      - "5436:5432"
-    environment:
-      - POSTGRES_USER=${DB_USER:-postgres}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME:-postgres}
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-      - ./init-db:/docker-entrypoint-initdb.d
-      - ./backups:/app/backups
-    healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-postgres}" ]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-      # start_period: 30s
-    networks:
-      - app-network
-    command:
-      - "postgres"
-      - "-c"
-      - "ssl=off"
+#   db:
+#     image: postgres:15-alpine
+#     ports:
+#       - "5436:5432"
+#     environment:
+#       - POSTGRES_USER=${DB_USER:-postgres}
+#       - POSTGRES_PASSWORD=${DB_PASSWORD}
+#       - POSTGRES_DB=${DB_NAME:-postgres}
+#     volumes:
+#       - postgres-data:/var/lib/postgresql/data
+#       - ./init-db:/docker-entrypoint-initdb.d
+#       - ./backups:/app/backups
+#     healthcheck:
+#       test: [ "CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-postgres}" ]
+#       interval: 5s
+#       timeout: 5s
+#       retries: 5
+#       # start_period: 30s
+#     networks:
+#       - app-network
+#     command:
+#       - "postgres"
+#       - "-c"
+#       - "ssl=off"
 
-volumes:
-  postgres-data:
-    driver: local
+# volumes:
+#   postgres-data:
+#     driver: local
 
 networks:
   web:
