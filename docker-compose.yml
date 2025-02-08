@@ -22,8 +22,8 @@ services:
     #   - NODE_ENV=production
     labels:
       - "traefik.enable=true"
-      # - "traefik.http.routers.portfolio.rule=Host(`edinception.online`)"
-      - "traefik.http.routers.portfolio.rule=Host(`dorkordi.site/portfolio`)"
+      - "traefik.http.routers.portfolio.rule=Host(`edinception.online`)"
+      # - "traefik.http.routers.portfolio.rule=Host(`dorkordi.site/portfolio`)"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.services.portfolio.loadbalancer.server.port=3007"  # Changed to match your port
