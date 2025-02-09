@@ -12,19 +12,15 @@ services:
       - NODE_ENV=production
     labels:
       - traefik.enable=true
-      - traefik.http.routers.dorkportfolio-http.rule=Host(`${DOMAIN}`) && PathPrefix(`/dorkms`)
-      - traefik.http.routers.dorkportfolio-https.rule=Host(`${DOMAIN}`) && PathPrefix(`/dorkms`)
+      - traefik.http.routers.dorkportfolio-http.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.dorkportfolio-http.entrypoints=http
       - traefik.http.routers.dorkportfolio-http.middlewares=https-redirect
+      - traefik.http.routers.dorkportfolio-https.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.dorkportfolio-https.entrypoints=https
       - traefik.http.routers.dorkportfolio-https.tls=true
       - traefik.http.routers.dorkportfolio-https.tls.certresolver=le
       - traefik.http.routers.dorkportfolio-https.service=dorkportfolio-service
       - traefik.http.services.dorkportfolio-service.loadbalancer.server.port=3001
-          # Add strip prefix middleware
-      - traefik.http.middlewares.strip-dorkms-prefix.stripprefix.prefixes=/dorkms
-      - traefik.http.routers.dorkportfolio-https.middlewares=strip-dorkms-prefix
-      - traefik.http.routers.dorkportfolio-http.middlewares=https-redirect,strip-dorkms-prefix
     networks:
       - web
       - traefik-public

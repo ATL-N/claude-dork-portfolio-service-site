@@ -1,6 +1,4 @@
 module.exports = {
-  basePath: '/dorkms',
-
   async headers() {
     return [
       {
