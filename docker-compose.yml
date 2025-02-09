@@ -35,4 +35,4 @@ networks:
   web:
     external: true
   traefik-public:
-    driver: bridge
+    external: true
