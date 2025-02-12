@@ -15,7 +15,7 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-bold mb-6 text-foreground"
           >
-            John Doe: Crafting Digital Solutions
+            Nelson Dorkordi: Crafting Digital Solutions
           </motion.h1>
 
           <motion.p
