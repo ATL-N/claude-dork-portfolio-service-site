@@ -2,8 +2,8 @@ import { Code, Layout, Server, Database, Cloud, Terminal } from "lucide-react";
 import ServicesComponentPage from '../components/ServicesComponent'
 
 export const metadata = {
-  title: "Services | John Doe Portfolio",
-  description: "Professional web development services offered by John Doe",
+  title: "Services | Nelson Dorkordi Portfolio",
+  description: "Professional web development services offered by Nelson Dorkordi",
 };
 
 
@@ -25,7 +25,7 @@ const services = [
       "SEO Best Practices",
       "Cross-browser Compatibility",
     ],
-    price: "$2,000",
+    price: "GHC 2,000",
   },
   {
     icon: <Server size={40} className="text-primary" />,
@@ -37,7 +37,7 @@ const services = [
       "Authentication & Security",
       "Performance Scaling",
     ],
-    price: "$2,500",
+    price: "GHC 2,500",
   },
   {
     icon: <Layout size={40} className="text-primary" />,
@@ -49,7 +49,7 @@ const services = [
       "Third-party Integrations",
       "Maintenance & Support",
     ],
-    price: "$4,000",
+    price: "GHC 4,000",
   },
   {
     icon: <Database size={40} className="text-primary" />,
@@ -61,7 +61,7 @@ const services = [
       "Data Migration",
       "Backup Solutions",
     ],
-    price: "$1,500",
+    price: "GHC 1,500",
   },
   {
     icon: <Cloud size={40} className="text-primary" />,
@@ -73,7 +73,7 @@ const services = [
       "CI/CD Implementation",
       "Monitoring Setup",
     ],
-    price: "$2,000",
+    price: "GHC 2,000",
   },
   {
     icon: <Terminal size={40} className="text-primary" />,
@@ -85,6 +85,6 @@ const services = [
       "Best Practices",
       "Team Training",
     ],
-    price: "$150/hour",
+    price: "GHC 150/hour",
   },
 ];

@@ -41,15 +41,15 @@ export default function ContactComponentPage() {
             <div className="space-y-6">
               <div className="flex items-center">
                 <Mail className="text-primary mr-4" />
-                <span>john.doe@example.com</span>
+                <span>nelsodork@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="text-primary mr-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+233 (55) 157-7446</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="text-primary mr-4" />
-                <span>San Francisco, CA</span>
+                <span>Agona Swedru, Central Region</span>
               </div>
             </div>
           </motion.div>
