@@ -22,10 +22,10 @@ export default function AboutPage() {
             className="w-64 h-64 mb-8 md:mb-0 md:mr-12 relative"
           >
             <Image
-              src="/profile-image.jpg"
-              alt="John Doe"
+              src="/images/photo_2023-11-02_11-14-45.jpg"
+              alt="Nelson Dorkordi profile"
               fill
-              className="rounded-full object-cover shadow-lg"
+              className="rounded-full object-cover shadow-lg pl-4 bg-white"
             />
           </motion.div>
 
@@ -35,13 +35,13 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl font-bold mb-4 text-foreground">
-              John Doe
+              Nelson Dorkordi
             </h1>
             <p className="text-xl text-foreground/80 mb-6">
               Full Stack Developer | Tech Innovator | Passionate Problem Solver
             </p>
             <p className="text-foreground/70">
-              With over 7 years of experience in web development, I specialize
+              With over 5 years of experience in web development, I specialize
               in creating robust, scalable digital solutions that drive business
               growth and innovation.
             </p>
@@ -146,14 +146,14 @@ const professionalExperience = [
   {
     role: "Senior Full Stack Developer",
     company: "TechInnovate Solutions",
-    period: "2020 - Present",
+    period: "2021 - Present",
     description:
       "Lead development of enterprise-level web applications, implementing microservices architecture and cloud-native solutions.",
   },
   {
     role: "Web Development Consultant",
     company: "Digital Dynamics",
-    period: "2017 - 2020",
+    period: "2020 - Present",
     description:
       "Provided strategic tech consulting and custom software development for startups and mid-sized businesses.",
   },
@@ -163,7 +163,8 @@ const technologies = [
   { name: "React", icon: <Code size={40} strokeWidth={1.5} /> },
   { name: "Node.js", icon: <Code size={40} strokeWidth={1.5} /> },
   { name: "Next.js", icon: <BookOpen size={40} strokeWidth={1.5} /> },
-  { name: "TypeScript", icon: <Globe size={40} strokeWidth={1.5} /> },
+  { name: "Express", icon: <Globe size={40} strokeWidth={1.5} /> },
   { name: "Docker", icon: <Briefcase size={40} strokeWidth={1.5} /> },
-  { name: "AWS", icon: <Award size={40} strokeWidth={1.5} /> },
+  { name: "Python", icon: <Award size={40} strokeWidth={1.5} /> },
+  { name: "Git", icon: <Award size={40} strokeWidth={1.5} /> },
 ];
