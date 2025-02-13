@@ -3,11 +3,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Briefcase, Award, BookOpen, Globe, Code, Tool } from "lucide-react";
 
-// export const metadata = {
-//   title: "About John Doe | Full Stack Developer",
-//   description:
-//     "Learn about John Doe's journey, expertise, and professional background",
-// };
 
 export default function AboutComponentPage({ professionalExperience, technologies }) {
   return (
@@ -25,7 +20,7 @@ export default function AboutComponentPage({ professionalExperience, technologie
               src="/images/photo_2023-11-02_11-14-45.jpg"
               alt="Nelson Dorkordi profile"
               fill
-              className="rounded-full object-cover shadow-lg pl-4 bg-white"
+              className="rounded-full object-cover shadow-lg bg-white"
             />
           </motion.div>
 

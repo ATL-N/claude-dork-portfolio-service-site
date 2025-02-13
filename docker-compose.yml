@@ -22,7 +22,7 @@ services:
       - traefik.http.routers.dorkportfolio-https.service=dorkportfolio-service
       - traefik.http.services.dorkportfolio-service.loadbalancer.server.port=3001
     networks:
-      - web
+      # - web
       - traefik-public
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
@@ -32,7 +32,7 @@ services:
       start_period: 40s
 
 networks:
-  web:
-    external: true
+  # web:
+  #   external: true
   traefik-public:
     external: true

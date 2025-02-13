@@ -3,9 +3,9 @@ import AboutComponentPage from "../components/AboutComponent";
 import { Briefcase, Award, BookOpen, Globe, Code, Tool } from "lucide-react";
 
 export const metadata = {
-  title: "About John Doe | Full Stack Developer",
+  title: "About Nelson Dorkordi | Full Stack Developer",
   description:
-    "Learn about John Doe's journey, expertise, and professional background",
+    "Learn about Nelson Dorkordi's journey, expertise, and professional background",
 };
 
 export default function AboutPage() {

@@ -24,7 +24,7 @@ const projects = [
       "A comprehensive system for managing student records, attendance, and grades.",
     image: "/projects/Screenshot_20241206_224358.png",
     technologies: ["Nextjs", "Node.js", "Postgres", "Express", "Tailwind CSS"],
-    link: "#",
+    link: "https://dorkmspreview.dorkordi.site/authentication/login",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const projects = [
       "Modern website for displaying school details, events, and news online.",
     image: "/projects/schoolwebsite dashboard.png",
     technologies: ["Nextjs", "Tailwind CSS", "PostgreSQL", "Nodejs"],
-    link: "#",
+    link: "https://dorkms.dorkordi.site/",
   },
   // {
   //   id: 3,
@@ -51,7 +51,7 @@ const projects = [
       "A site to showcase services rendered by individual or organization. Like where you are at the moment",
     image: "/projects/portfolio sites.png",
     technologies: ["next.js", "Node.js", "PostgreSQL", "Docker"],
-    link: "#",
+    link: "https://dorkordi.site/",
   },
   // {
   //   id: 5,
